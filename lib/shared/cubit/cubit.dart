@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/moduls/business_screen.dart';
 import 'package:news_app/moduls/science_screen.dart';
@@ -23,9 +23,9 @@ class AppCubit extends Cubit<CubitStates> {
   }
 
   List screensList = [
-    BusinessScreen(),
-    ScienceScreen(),
-    SportsScreen(),
+    const BusinessScreen(),
+    const ScienceScreen(),
+    const SportsScreen(),
   ];
 
   List? businessData;
@@ -93,5 +93,19 @@ class AppCubit extends Cubit<CubitStates> {
       print(error);
       emit(GetSearchDataErrorState());
     });
+  }
+
+  bool isDarkTheme = false;
+  void changeTheme({bool? fromShared}) async {
+    SharedPreferences shared = await SharedPreferences.getInstance();
+    if (fromShared != null) {
+      isDarkTheme = fromShared;
+      emit(ChangeThemeState());
+    } else {
+      isDarkTheme = !isDarkTheme;
+      shared
+          .setBool('isDarkTheme', isDarkTheme)
+          .then((value) => emit(ChangeThemeState()));
+    }
   }
 }

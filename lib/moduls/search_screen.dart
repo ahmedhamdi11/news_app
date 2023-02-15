@@ -22,11 +22,10 @@ class SearchScreen extends StatelessWidget {
                 onChanged: (search) {
                   cubit.getSearchData(search: search);
                 },
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), label: Text('Search')),
+                decoration: const InputDecoration(label: Text('Search')),
               ),
               const SizedBox(
-                height: 5.0,
+                height: 10.0,
               ),
               if (state is GetSearchDataLoadingState)
                 const LinearProgressIndicator(),

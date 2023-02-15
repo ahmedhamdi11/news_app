@@ -2,43 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/bloc_observer.dart';
 import 'package:news_app/layout/home_layout.dart';
-import 'package:bloc/bloc.dart';
 import 'package:news_app/shared/cubit/cubit.dart';
+import 'package:news_app/shared/cubit/states.dart';
+import 'package:news_app/shared/style/dark_theme.dart';
+import 'package:news_app/shared/style/light_theme.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
   Bloc.observer = MyBlocObserver();
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences shared = await SharedPreferences.getInstance();
+  bool? isDarkTheme = shared.getBool('isDarkTheme');
+  print(isDarkTheme);
+  runApp(MyApp(isDark: isDarkTheme));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool? isDark;
+  const MyApp({super.key, required this.isDark});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AppCubit()..getBusinessData(),
-      child: MaterialApp(
-        title: 'News App',
-        theme: ThemeData(
-          primarySwatch: Colors.deepOrange,
-          appBarTheme: const AppBarTheme(
-            iconTheme: IconThemeData(color: Colors.black),
-            actionsIconTheme: IconThemeData(
-              color: Colors.black,
-            ),
-            backgroundColor: Colors.white,
-            elevation: 0.0,
-            titleTextStyle: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),
+        create: (context) => AppCubit()
+          ..changeTheme(fromShared: isDark)
+          ..getBusinessData(),
+        child: BlocConsumer<AppCubit, CubitStates>(
+          listener: (context, state) {},
+          builder: (context, state) => MaterialApp(
+            title: 'News App',
+            theme: lightTheme(),
+            darkTheme: darkTheme(),
+            themeMode: AppCubit.get(context).isDarkTheme
+                ? ThemeMode.dark
+                : ThemeMode.light,
+            home: const HomeLayout(),
           ),
-        ),
-        themeMode: ThemeMode.light,
-        home: HomeLayout(),
-      ),
-    );
+        ));
   }
 }

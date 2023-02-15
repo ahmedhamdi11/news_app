@@ -15,7 +15,11 @@ class HomeLayout extends StatelessWidget {
         AppCubit cubit = AppCubit.get(context);
         return Scaffold(
           appBar: AppBar(title: const Text('News App'), actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.light_mode)),
+            IconButton(
+                onPressed: () {
+                  cubit.changeTheme();
+                },
+                icon: const Icon(Icons.brightness_4_outlined)),
             IconButton(
                 onPressed: () {
                   Navigator.push(context,

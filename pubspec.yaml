@@ -41,6 +41,7 @@ dependencies:
   bloc: ^8.1.0
   http: ^0.13.5
   shared_preferences: ^2.0.17
+  webview_flutter: ^4.0.2
 
 dev_dependencies:
   flutter_test:

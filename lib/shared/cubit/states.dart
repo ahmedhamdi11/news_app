@@ -27,3 +27,5 @@ class GetSearchDataSuccesState extends CubitStates {}
 class GetSearchDataLoadingState extends CubitStates {}
 
 class GetSearchDataErrorState extends CubitStates {}
+
+class ChangeThemeState extends CubitStates {}
