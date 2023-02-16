@@ -40,7 +40,7 @@ class SearchScreen extends StatelessWidget {
                 ),
               cubit.searchData == null
                   ? const Center(
-                      child: Text('Explor the world\'s hot news'),
+                      child: Text('Explore the world\'s hot news'),
                     )
                   : Expanded(
                       child: ListView.separated(

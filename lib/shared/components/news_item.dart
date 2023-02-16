@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/moduls/web_view_container.dart';
+import 'package:news_app/modules/web_view_container.dart';
 
 class NewsItemBuilder extends StatelessWidget {
   final int index;

@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/moduls/business_screen.dart';
-import 'package:news_app/moduls/science_screen.dart';
-import 'package:news_app/moduls/sports_screen.dart';
+import 'package:news_app/modules/business_screen.dart';
+import 'package:news_app/modules/science_screen.dart';
+import 'package:news_app/modules/sports_screen.dart';
 import 'package:news_app/shared/cubit/states.dart';
 import 'package:http/http.dart' as http;
 
