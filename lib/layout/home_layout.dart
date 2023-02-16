@@ -22,8 +22,10 @@ class HomeLayout extends StatelessWidget {
                 icon: const Icon(Icons.brightness_4_outlined)),
             IconButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SearchScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SearchScreen()));
                 },
                 icon: const Icon(Icons.search)),
             const SizedBox(

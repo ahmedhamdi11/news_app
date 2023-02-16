@@ -46,7 +46,6 @@ class AppCubit extends Cubit<CubitStates> {
       businessData = data['articles'];
       emit(GetBusinessDataSuccesState());
     }).catchError((error) {
-      print(error);
       emit(GetBusinessDataErrorState());
     });
   }
@@ -61,7 +60,6 @@ class AppCubit extends Cubit<CubitStates> {
       scienceData = data['articles'];
       emit(GetScienceDataSuccesState());
     }).catchError((error) {
-      print(error);
       emit(GetScienceDataErrorState());
     });
   }
@@ -76,7 +74,6 @@ class AppCubit extends Cubit<CubitStates> {
       sportsData = data['articles'];
       emit(GetSportsDataSuccesState());
     }).catchError((error) {
-      print(error);
       emit(GetSportsDataErrorState());
     });
   }
@@ -90,7 +87,6 @@ class AppCubit extends Cubit<CubitStates> {
       searchData = data['articles'];
       emit(GetSearchDataSuccesState());
     }).catchError((error) {
-      print(error);
       emit(GetSearchDataErrorState());
     });
   }

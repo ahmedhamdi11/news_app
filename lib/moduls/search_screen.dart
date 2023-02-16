@@ -19,10 +19,15 @@ class SearchScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: Column(children: [
               TextFormField(
+                style: cubit.isDarkTheme
+                    ? const TextStyle(color: Colors.white)
+                    : const TextStyle(color: Colors.black),
                 onChanged: (search) {
                   cubit.getSearchData(search: search);
                 },
-                decoration: const InputDecoration(label: Text('Search')),
+                decoration: const InputDecoration(
+                  label: Text('Search'),
+                ),
               ),
               const SizedBox(
                 height: 10.0,

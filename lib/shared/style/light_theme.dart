@@ -2,6 +2,16 @@ import 'package:flutter/material.dart';
 
 ThemeData lightTheme() {
   return ThemeData(
+    inputDecorationTheme: const InputDecorationTheme(
+      labelStyle: TextStyle(
+        color: Colors.deepOrange,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.black),
+      ),
+      focusedBorder:
+          OutlineInputBorder(borderSide: BorderSide(color: Colors.deepOrange)),
+    ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: Colors.white, elevation: 0.0),
     textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.black)),

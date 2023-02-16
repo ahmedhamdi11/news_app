@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 ThemeData darkTheme() {
   return ThemeData(
     inputDecorationTheme: const InputDecorationTheme(
-      hintStyle: TextStyle(color: Colors.grey),
       labelStyle: TextStyle(
         color: Colors.deepOrange,
       ),

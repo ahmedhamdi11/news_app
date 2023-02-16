@@ -13,7 +13,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences shared = await SharedPreferences.getInstance();
   bool? isDarkTheme = shared.getBool('isDarkTheme');
-  print(isDarkTheme);
   runApp(MyApp(isDark: isDarkTheme));
 }
 

@@ -8,7 +8,7 @@ class WebViewContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('News'),
+        title: const Text('News'),
       ),
       body: Column(children: [
         Expanded(
